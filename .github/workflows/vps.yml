@@ -1,0 +1,18 @@
+name: Временный VPS
+
+on:
+  workflow_dispatch:   # запуск только вручную из интерфейса Actions
+
+jobs:
+  vps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360   # 6 часов — максимум
+    steps:
+      - name: Checkout (опционально)
+        uses: actions/checkout@v4
+
+      - name: Запустить сессию tmate
+        uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: true   # только вы (или тот, кто запустил) увидите SSH-строку в логах
+          timeout-minutes: 350          # убьёт сессию за 10 минут до окончания джобы
