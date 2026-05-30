@@ -17,7 +17,7 @@ jobs:
           limit-access-to-actor: true   # только вы (или тот, кто запустил) увидите SSH-строку в логах
           timeout-minutes: 350          # убьёт сессию за 10 минут до окончания джобы
       - name : Установка elinks
-        run:  |
+        run: |
           sudo apt update
           sudo apt install -y elinks
         
